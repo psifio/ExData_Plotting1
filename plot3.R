@@ -34,7 +34,7 @@ legend("topright",  lty=c(1,1,1)  ,col = c("black", "red","blue"), legend = c("S
 
 
 #export to png
-dev.copy(png, file = "plot1.png")
+dev.copy(png, file = "plot3.png")
 dev.off(dev.prev())
 dev.off()
 
