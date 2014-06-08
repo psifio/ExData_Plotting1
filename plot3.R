@@ -17,6 +17,9 @@ unzippedFile<-unzip(localfilename)
 #subset and read data
 mydata<-read.csv.sql(unzippedFile,header=TRUE,sep=";", sql="select * from file where Date='1/2/2007' or Date='2/2/2007'")
 
+#calc datetime
+mydata$Date.Time <-strptime(paste(mydata$Date,mydata$Time),"%d/%m/%Y %H:%M:%S")
+
 #open screen device
 windows()
 
