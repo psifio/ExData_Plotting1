@@ -1,3 +1,5 @@
+library(sqldf)
+
 #source data file
 fileUrl<-"https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 
@@ -14,9 +16,15 @@ unzippedFile<-unzip(localfilename)
 #subset and read data
 mydata<-read.csv.sql(unzippedFile,header=TRUE,sep=";", sql="select * from file where Date='1/2/2007' or Date='2/2/2007'")
 
+#open screen device
+windows()
 
 #plot the histogram
 hist(mydata$Global_active_power,col="red",main="Global Active Power",xlab="Global Active Power (kilowatts)")
 
+#export to png
+dev.copy(png, file = "plot1.png")
+dev.off(dev.prev())
+dev.off()
 
 
